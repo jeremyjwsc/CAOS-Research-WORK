@@ -1,0 +1,9 @@
+==5671== PGPROF is profiling process 5671, command: ./km1
+==5671== Profiling application: ./km1
+==5671== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+nvprof: /home/buildmeister/build/rel/gpgpu/toolkit/r9.0/nvprof/src/openacc/nvprof_openacc.c:341: push_openacc_activity_stack: Assertion `activity->start <= activity->end' failed.
+pgprof-Fatal-/soft/OpenACC-2018-18.4/linux86-64/2018/cuda/9.0/bin/nvprof TERMINATED by signal 6
+Arguments to /soft/OpenACC-2018-18.4/linux86-64/2018/cuda/9.0/bin/nvprof
+/soft/OpenACC-2018-18.4/linux86-64/2018/cuda/9.0/bin/nvprof --cpu-profiling on --openacc-profiling on --cpu-profiling-explain-ccff /soft/OpenACC-2018-18.4/linux86-64/18.4/bin/pgexplain.xml ./km1

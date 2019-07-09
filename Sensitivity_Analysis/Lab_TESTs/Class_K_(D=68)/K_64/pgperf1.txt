@@ -1,0 +1,133 @@
+==4993== PGPROF is profiling process 4993, command: ./km1
+==4993== Profiling application: ./km1
+==4993== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ OpenACC (excl):   99.94%  38.5293s       200  192.65ms  191.96ms  210.50ms  acc_compute_construct@kmeanACC.c:121
+                    0.05%  20.469ms       200  102.34us  1.9900us  20.032ms  acc_compute_construct@kmeanACC.c:111
+                    0.01%  3.3939ms       200  16.969us  15.878us  115.39us  acc_compute_construct@kmeanACC.c:215
+==4993== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+
+======== CPU profiling result (bottom up):
+Time(%)      Time  Name
+ 96.99%  153.649s  PointsToCentroides
+ 96.99%  153.649s  | main
+ 96.99%  153.649s  |   ???
+  0.76%  1.19999s  strtok
+  0.76%  1.19999s  | main
+  0.76%  1.19999s  |   ???
+  0.67%  1.05999s  _mp_barrier_tw
+  0.40%  629.99ms  | _mp_cslave
+  0.40%  629.99ms  | | _mp_slave
+  0.27%     430ms  | __pgi_acc_barrier
+  0.27%     430ms  |   PointsToCentroides
+  0.27%     430ms  |     main
+  0.27%     430ms  |       ???
+  0.60%  949.99ms  __GI_____strtod_l_internal
+  0.60%  949.99ms  | main
+  0.60%  949.99ms  |   ???
+  0.32%     500ms  __strcmp_sse42
+  0.32%     500ms  | main
+  0.32%     500ms  |   ???
+  0.15%     240ms  main
+  0.15%     240ms  | ???
+  0.13%     200ms  str_to_mpn.isra.0
+  0.13%     200ms  | __GI_____strtod_l_internal
+  0.13%     200ms  |   main
+  0.13%     200ms  |     ???
+  0.06%  89.999ms  round_and_return
+  0.06%  89.999ms  | __GI_____strtod_l_internal
+  0.06%  89.999ms  |   main
+  0.06%  89.999ms  |     ???
+  0.05%  79.999ms  __correctly_grouped_prefixmb
+  0.05%  79.999ms  | __GI_____strtod_l_internal
+  0.05%  79.999ms  |   main
+  0.05%  79.999ms  |     ???
+  0.05%  79.999ms  __strlen_sse2
+  0.05%  79.999ms  | __GI_____strtod_l_internal
+  0.05%  79.999ms  |   main
+  0.05%  79.999ms  |     ???
+  0.04%  69.999ms  ???
+  0.04%  69.999ms  | main
+  0.04%  69.999ms  |   ???
+  0.03%      50ms  __mpn_construct_double
+  0.03%      50ms  | round_and_return
+  0.03%      50ms  |   __GI_____strtod_l_internal
+  0.03%      50ms  |     main
+  0.03%      50ms  |       ???
+  0.03%      40ms  _int_malloc
+  0.03%      40ms  | __libc_malloc
+  0.03%      40ms  |   main
+  0.03%      40ms  |     ???
+  0.02%      30ms  strtod
+  0.02%      30ms  | main
+  0.02%      30ms  |   ???
+  0.01%      20ms  _IO_fgets
+  0.01%      20ms  | main
+  0.01%      20ms  |   ???
+  0.01%      20ms  atof
+  0.01%      20ms  | main
+  0.01%      20ms  |   ???
+  0.01%      20ms  memchr
+  0.01%      20ms  | _IO_getline_info
+  0.01%      20ms  |   _IO_fgets
+  0.01%      20ms  |     main
+  0.01%      20ms  |       ???
+  0.01%      20ms  __mpn_lshift
+  0.01%      20ms  | __GI_____strtod_l_internal
+  0.01%      20ms  |   main
+  0.01%      20ms  |     ???
+  0.01%      20ms  _mp_barrierw
+  0.01%      20ms  | _mp_create_team
+  0.01%      20ms  |   __pgi_acc_cpenter
+  0.01%      20ms  |     __pgi_acc_penter_set
+  0.01%      20ms  |       PointsToCentroides
+  0.01%      20ms  |         main
+  0.01%      20ms  |           ???
+  0.01%      20ms  _IO_getline_info
+  0.01%      20ms  | _IO_fgets
+  0.01%      20ms  |   main
+  0.01%      20ms  |     ???
+  0.01%  9.9999ms  read
+  0.01%  9.9999ms  | _IO_file_underflow@@GLIBC_2.2.5
+  0.01%  9.9999ms  |   _IO_default_uflow
+  0.01%  9.9999ms  |     _IO_getline_info
+  0.01%  9.9999ms  |       _IO_fgets
+  0.01%  9.9999ms  |         main
+  0.01%  9.9999ms  |           ???
+  0.01%  9.9999ms  __open64
+  0.01%  9.9999ms  | open_verify
+  0.01%  9.9999ms  |   open_path
+  0.01%  9.9999ms  |     _dl_map_object
+  0.01%  9.9999ms  |       dl_open_worker
+  0.01%  9.9999ms  |         _dl_catch_error
+  0.01%  9.9999ms  |           _dl_open
+  0.01%  9.9999ms  |             dlopen_doit
+  0.01%  9.9999ms  |               _dl_catch_error
+  0.01%  9.9999ms  |                 _dlerror_run
+  0.01%  9.9999ms  |                   dlopen@@GLIBC_2.2.5
+  0.01%  9.9999ms  |                     acc_register_library
+  0.01%  9.9999ms  |                       __pgi_uacc_add_profile_library
+  0.01%  9.9999ms  |                         __pgi_uacc_add_profile_libraries
+  0.01%  9.9999ms  |                           __pgi_uacc_globalinit
+  0.01%  9.9999ms  |                             __pgi_uacc_enumerate
+  0.01%  9.9999ms  |                               __pgi_uacc_initialize
+  0.01%  9.9999ms  |                                 __pgi_uacc_multicorestart
+  0.01%  9.9999ms  |                                   PointsToCentroides
+  0.01%  9.9999ms  |                                     main
+  0.01%  9.9999ms  |                                       ???
+  0.01%  9.9999ms  __libc_malloc
+  0.01%  9.9999ms  | main
+  0.01%  9.9999ms  |   ???
+  0.01%  9.9999ms  pthread_cond_signal@@GLIBC_2.3.2
+  0.01%  9.9999ms  __GI_memcpy
+  0.01%  9.9999ms  | _IO_getline_info
+  0.01%  9.9999ms  |   _IO_fgets
+  0.01%  9.9999ms  |     main
+  0.01%  9.9999ms  |       ???
+  0.01%  9.9999ms  __strcpy_sse2_unaligned
+  0.01%  9.9999ms    main
+  0.01%  9.9999ms      ???
+
+======== Data collected at 100Hz frequency

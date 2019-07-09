@@ -1,0 +1,82 @@
+==8753== PGPROF is profiling process 8753, command: ./km1
+==8753== Profiling application: ./km1
+==8753== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ OpenACC (excl):   99.98%  171.170s       200  855.85ms  829.54ms  1.16244s  acc_compute_construct@kmeanACC.c:121
+                    0.02%  30.663ms       200  153.32us  2.9390us  30.026ms  acc_compute_construct@kmeanACC.c:111
+                    0.00%  6.1109ms       200  30.554us  29.397us  34.781us  acc_compute_construct@kmeanACC.c:215
+==8753== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+
+======== CPU profiling result (bottom up):
+Time(%)      Time  Name
+ 99.33%   681.37s  PointsToCentroides
+ 99.33%   681.37s  | main
+ 99.33%   681.37s  |   ???
+  0.58%     3.95s  _mp_barrier_tw
+  0.49%     3.39s  | __pgi_acc_barrier
+  0.49%     3.39s  | | PointsToCentroides
+  0.49%     3.39s  | |   main
+  0.49%     3.39s  | |     ???
+  0.08%     560ms  | _mp_cslave
+  0.08%     560ms  |   _mp_slave
+  0.00%      20ms  |     _mp_pcpu_wait
+  0.00%      20ms  |       start_thread
+  0.00%      20ms  |         clone
+  0.04%     250ms  strtok
+  0.04%     250ms  | main
+  0.04%     250ms  |   ???
+  0.02%     150ms  __GI_____strtod_l_internal
+  0.02%     150ms  | main
+  0.02%     150ms  |   ???
+  0.01%      40ms  __libc_malloc
+  0.01%      40ms  | main
+  0.01%      40ms  |   ???
+  0.01%      40ms  __strlen_sse2
+  0.01%      40ms  | __GI_____strtod_l_internal
+  0.01%      40ms  |   main
+  0.01%      40ms  |     ???
+  0.00%      30ms  _mp_barrierw
+  0.00%      30ms  | _mp_create_team
+  0.00%      30ms  |   __pgi_acc_cpenter
+  0.00%      30ms  |     __pgi_acc_penter_set
+  0.00%      30ms  |       PointsToCentroides
+  0.00%      30ms  |         main
+  0.00%      30ms  |           ???
+  0.00%      20ms  str_to_mpn.isra.0
+  0.00%      20ms  | __GI_____strtod_l_internal
+  0.00%      20ms  |   main
+  0.00%      20ms  |     ???
+  0.00%      20ms  _int_malloc
+  0.00%      20ms  | __libc_malloc
+  0.00%      20ms  |   main
+  0.00%      20ms  |     ???
+  0.00%      20ms  __strcmp_sse42
+  0.00%      20ms  | main
+  0.00%      20ms  |   ???
+  0.00%      20ms  round_and_return
+  0.00%      20ms  | __GI_____strtod_l_internal
+  0.00%      20ms  |   main
+  0.00%      20ms  |     ???
+  0.00%      10ms  ???
+  0.00%      10ms  | main
+  0.00%      10ms  |   ???
+  0.00%      10ms  _IO_fgets
+  0.00%      10ms  | main
+  0.00%      10ms  |   ???
+  0.00%      10ms  __printf_fp
+  0.00%      10ms  | _IO_vfprintf
+  0.00%      10ms  |   printf
+  0.00%      10ms  |     main
+  0.00%      10ms  |       ???
+  0.00%      10ms  atof
+  0.00%      10ms  | main
+  0.00%      10ms  |   ???
+  0.00%      10ms  memchr
+  0.00%      10ms    _IO_getline_info
+  0.00%      10ms      _IO_fgets
+  0.00%      10ms        main
+  0.00%      10ms          ???
+
+======== Data collected at 100Hz frequency

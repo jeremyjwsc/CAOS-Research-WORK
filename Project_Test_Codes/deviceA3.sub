@@ -1,0 +1,25 @@
+#!/bin/bash -l
+#
+#SBATCH --job-name=ML_KMs
+#SBATCH -N 1 # number of nodes
+#SBATCH -n 2 # number of cores TOTALES
+#SBATCH --partition=cuda.q 
+#SBATCH --nodelist=aolin24
+#SBATCH --gres=gpu:1
+
+hostname
+
+module add gcc/8.2.0
+module load pgi/18.4 
+module add cuda/9.0
+
+#---GPU
+
+pgcc -fast -acc -ta=tesla -Minfo=all kmeanACC.c -o km3
+
+nvprof --print-gpu-trace -o trace.txt ./km3
+
+nvprof --analysis-metrics -o metrics.out ./km3
+
+exit 0
+ 

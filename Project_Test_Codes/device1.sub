@@ -1,0 +1,21 @@
+#!/bin/bash -l
+#
+#SBATCH --job-name=KMEANS
+#SBATCH -N 1 # number of nodes
+#SBATCH -n 1 # number of cores TOTALES
+#SBATCH --partition=cuda.q
+#SBATCH --nodelist=aolin24
+
+hostname
+
+module load pgi/18.4 
+module add cuda/9.0
+
+pgaccelinfo
+
+pgcc -fast -ta=tesla kmeanACC.c -Minfo=all -o kmean
+
+perf stat ./kmean
+
+exit 0
+ 

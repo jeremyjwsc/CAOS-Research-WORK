@@ -1,0 +1,248 @@
+
+
+------K=4 and D=68 (kmeans_baseline_input.c)
+
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=4, N=1000000, D=68
+K-means:
+         Points: 1000000
+         Dimension: 68
+         Centroides: 4
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+        6.0     11.0    1.0     0.0     0.0     6.0     0.0     2.0     2.0     0.0     0.0     7.0     0.0     2.0     1.00.0      0.0     1.0     0.0     1.0     0.0     0.0     0.0     0.0     8.0     0.0     2.0     0.0     0.0     0.0     11.04.0     1.0     2.0     2.0     0.0     2.0     0.0     2.0     2.0     4.0     2.0     1.0     0.0     0.0     0.0     1.00.0      2.0     10.0    0.0     1.0     0.0     1.0     0.0     1.0     0.0     0.0     0.0     0.0     0.0     2.0     1.01.0      0.0     13.0    1.0     0.0
+        7.0     1.0     1.0     0.0     0.0     0.0     0.0     1.0     2.0     0.0     0.0     7.0     0.0     0.0     0.00.0      0.0     0.0     0.0     1.0     1.0     0.0     0.0     0.0     0.0     0.0     2.0     2.0     0.0     0.0     0.04.0      2.0     2.0     0.0     0.0     2.0     0.0     2.0     1.0     4.0     0.0     1.0     0.0     0.0     0.0     6.00.0      3.0     10.0    0.0     1.0     0.0     1.0     0.0     1.0     0.0     0.0     3.0     0.0     0.0     0.0     2.02.0      0.0     11.0    6.0     0.0
+        6.0     1.0     3.0     0.0     0.0     1.0     3.0     2.0     2.0     0.0     1.0     0.0     0.0     3.0     3.00.0      3.0     0.0     0.0     1.0     0.0     0.0     0.0     0.0     7.0     0.0     2.0     0.0     0.0     0.0     1.02.0      1.0     2.0     2.0     0.0     2.0     0.0     2.0     1.0     0.0     4.0     0.0     0.0     0.0     1.0     1.00.0      4.0     10.0    0.0     1.0     7.0     1.0     0.0     0.0     0.0     0.0     0.0     3.0     0.0     1.0     1.01.0      0.0     10.0    1.0     2.0
+        6.0     1.0     1.0     0.0     0.0     1.0     4.0     2.0     2.0     0.0     0.0     0.0     0.0     3.0     5.00.0      4.0     0.0     0.0     1.0     0.0     0.0     0.0     0.0     9.0     0.0     2.0     0.0     0.0     0.0     1.02.0      1.0     2.0     1.0     0.0     2.0     0.0     2.0     1.0     0.0     5.0     0.0     0.0     0.0     1.0     1.00.0      5.0     21.0    0.0     1.0     10.0    1.0     0.0     0.0     0.0     0.0     0.0     4.0     0.0     2.0     1.01.0      1.0     14.0    1.0     1.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+      37952,076656      task-clock (msec)         #    1,000 CPUs utilized
+               665      context-switches          #    0,018 K/sec
+                 8      cpu-migrations            #    0,000 K/sec
+             9.541      page-faults               #    0,251 K/sec
+   128.400.058.891      cycles                    #    3,383 GHz
+    44.193.430.148      stalled-cycles-frontend   #   34,42% frontend cycles idle
+    25.272.335.304      stalled-cycles-backend    #   19,68% backend  cycles idle
+   260.440.511.447      instructions              #    2,03  insns per cycle
+                                                  #    0,17  stalled cycles per insn
+    30.035.493.680      branches                  #  791,406 M/sec
+        37.926.122      branch-misses             #    0,13% of all branches
+
+      37,967853804 seconds time elapsed
+
+------K=4 and D=34 (kmeans_baseline_input.c)
+
+	  jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<output34.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with output34.csv, K=4, N=1000000, D=34
+K-means:
+         Points: 1000000
+         Dimension: 34
+         Centroides: 4
+reading input data from output34.csv
+
+Read 1000000 x 34 points data from output34.csv.
+
+Centroides:
+        6.0     11.0    1.0     0.0     0.0     6.0     0.0     2.0     2.0     0.0     0.0     7.0     0.0     2.0     1.00.0      0.0     1.0     0.0     1.0     0.0     0.0     0.0     0.0     8.0     0.0     2.0     0.0     0.0     0.0     11.04.0     1.0     2.0
+        7.0     1.0     1.0     0.0     0.0     0.0     0.0     1.0     2.0     0.0     0.0     7.0     0.0     0.0     0.00.0      0.0     0.0     0.0     1.0     1.0     0.0     0.0     0.0     0.0     0.0     2.0     2.0     0.0     0.0     0.04.0      2.0     2.0
+        6.0     1.0     3.0     0.0     0.0     1.0     3.0     2.0     2.0     0.0     1.0     0.0     0.0     3.0     3.00.0      3.0     0.0     0.0     1.0     0.0     0.0     0.0     0.0     7.0     0.0     2.0     0.0     0.0     0.0     1.02.0      1.0     2.0
+        6.0     1.0     1.0     0.0     0.0     1.0     4.0     2.0     2.0     0.0     0.0     0.0     0.0     3.0     5.00.0      4.0     0.0     0.0     1.0     0.0     0.0     0.0     0.0     9.0     0.0     2.0     0.0     0.0     0.0     1.02.0      1.0     2.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+      24228,168283      task-clock (msec)         #    1,000 CPUs utilized
+               363      context-switches          #    0,015 K/sec
+                 3      cpu-migrations            #    0,000 K/sec
+             9.337      page-faults               #    0,385 K/sec
+    81.902.174.324      cycles                    #    3,380 GHz
+    27.930.963.497      stalled-cycles-frontend   #   34,10% frontend cycles idle
+    15.149.088.226      stalled-cycles-backend    #   18,50% backend  cycles idle
+   174.238.648.302      instructions              #    2,13  insns per cycle
+                                                  #    0,16  stalled cycles per insn
+    21.928.829.494      branches                  #  905,096 M/sec
+        17.806.417      branch-misses             #    0,08% of all branches
+
+      24,238454793 seconds time elapsed
+
+	  
+------K=4 and D=17 (kmeans_baseline_input.c)	  
+	 
+	 
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<output17.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with output17.csv, K=4, N=1000000, D=17
+K-means:
+         Points: 1000000
+         Dimension: 17
+         Centroides: 4
+reading input data from output17.csv
+
+Read 1000000 x 17 points data from output17.csv.
+
+Centroides:
+        6.0     11.0    1.0     0.0     0.0     6.0     0.0     2.0     2.0     0.0     0.0     7.0     0.0     2.0     1.00.0      0.0
+        7.0     1.0     1.0     0.0     0.0     0.0     0.0     1.0     2.0     0.0     0.0     7.0     0.0     0.0     0.00.0      0.0
+        6.0     1.0     3.0     0.0     0.0     1.0     3.0     2.0     2.0     0.0     1.0     0.0     0.0     3.0     3.00.0      3.0
+        6.0     1.0     1.0     0.0     0.0     1.0     4.0     2.0     2.0     0.0     0.0     0.0     0.0     3.0     5.00.0      4.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+      16855,084457      task-clock (msec)         #    1,000 CPUs utilized
+               215      context-switches          #    0,013 K/sec
+                 3      cpu-migrations            #    0,000 K/sec
+             9.584      page-faults               #    0,569 K/sec
+    56.882.564.008      cycles                    #    3,375 GHz
+    19.359.531.140      stalled-cycles-frontend   #   34,03% frontend cycles idle
+     9.210.461.741      stalled-cycles-backend    #   16,19% backend  cycles idle
+   127.135.971.907      instructions              #    2,24  insns per cycle
+                                                  #    0,15  stalled cycles per insn
+    17.068.147.590      branches                  # 1012,641 M/sec
+        12.571.922      branch-misses             #    0,07% of all branches
+
+      16,862556421 seconds time elapsed
+
+
+------K=4 and D=8 (kmeans_baseline_input.c)
+
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<output8.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with output8.csv, K=4, N=1000000, D=8
+K-means:
+         Points: 1000000
+         Dimension: 8
+         Centroides: 4
+reading input data from output8.csv
+
+Read 1000000 x 8 points data from output8.csv.
+
+Centroides:
+        6.0     11.0    1.0     0.0     0.0     6.0     0.0     2.0
+        7.0     1.0     1.0     0.0     0.0     0.0     0.0     1.0
+        6.0     1.0     3.0     0.0     0.0     1.0     3.0     2.0
+        6.0     1.0     1.0     0.0     0.0     1.0     4.0     2.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+       9714,691281      task-clock (msec)         #    0,998 CPUs utilized
+               266      context-switches          #    0,027 K/sec
+                 4      cpu-migrations            #    0,000 K/sec
+             9.554      page-faults               #    0,983 K/sec
+    32.702.751.566      cycles                    #    3,366 GHz
+     8.724.244.218      stalled-cycles-frontend   #   26,68% frontend cycles idle
+     3.310.222.652      stalled-cycles-backend    #   10,12% backend  cycles idle
+    82.456.224.547      instructions              #    2,52  insns per cycle
+                                                  #    0,11  stalled cycles per insn
+    11.109.354.943      branches                  # 1143,562 M/sec
+         4.627.788      branch-misses             #    0,04% of all branches
+
+       9,738963806 seconds time elapsed
+
+
+------K=4 and D=4 (kmeans_baseline_input.c)   
+	   
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<output4.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with output4.csv, K=4, N=1000000, D=4
+K-means:
+         Points: 1000000
+         Dimension: 4
+         Centroides: 4
+reading input data from output4.csv
+
+Read 1000000 x 4 points data from output4.csv.
+
+Centroides:
+        6.0     11.0    1.0     0.0
+        7.0     1.0     1.0     0.0
+        6.0     1.0     3.0     0.0
+        6.0     1.0     1.0     0.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+       6944,030295      task-clock (msec)         #    0,999 CPUs utilized
+                87      context-switches          #    0,013 K/sec
+                 1      cpu-migrations            #    0,000 K/sec
+             9.119      page-faults               #    0,001 M/sec
+    23.357.348.319      cycles                    #    3,364 GHz
+     4.343.260.816      stalled-cycles-frontend   #   18,59% frontend cycles idle
+     1.564.354.636      stalled-cycles-backend    #    6,70% backend  cycles idle
+    62.310.521.713      instructions              #    2,67  insns per cycle
+                                                  #    0,07  stalled cycles per insn
+    10.631.882.617      branches                  # 1531,082 M/sec
+         1.527.005      branch-misses             #    0,01% of all branches
+
+       6,947813159 seconds time elapsed
+	   
+
+------K=4 and D=2 (kmeans_baseline_input.c) 
+
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ gcc -Ofast -lm kmeans_baseline_input.c -o KM_1
+jwilliams@aolin-login:~/kmeans/GPU/DataTestCPU$ perf stat ./KM_1
+Usage: ./KM_1<output2.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with output2.csv, K=4, N=1000000, D=2
+K-means:
+         Points: 1000000
+         Dimension: 2
+         Centroides: 4
+reading input data from output2.csv
+
+Read 1000000 x 2 points data from output2.csv.
+
+Centroides:
+        6.0     11.0
+        7.0     1.0
+        6.0     1.0
+        6.0     1.0
+
+Number of iterations needed (T): 200
+
+Number of changes (F): 0
+
+ Performance counter stats for './KM_1':
+
+       5406,654212      task-clock (msec)         #    0,999 CPUs utilized
+                67      context-switches          #    0,012 K/sec
+                 2      cpu-migrations            #    0,000 K/sec
+             9.829      page-faults               #    0,002 M/sec
+    18.170.251.037      cycles                    #    3,361 GHz
+     3.116.888.193      stalled-cycles-frontend   #   17,15% frontend cycles idle
+       813.607.385      stalled-cycles-backend    #    4,48% backend  cycles idle
+    48.424.597.634      instructions              #    2,67  insns per cycle
+                                                  #    0,06  stalled cycles per insn
+     8.692.146.054      branches                  # 1607,676 M/sec
+           683.096      branch-misses             #    0,01% of all branches
+
+       5,410353143 seconds time elapsed
+ 
+

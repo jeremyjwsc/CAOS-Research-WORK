@@ -1,0 +1,19 @@
+#!/bin/bash -l
+#SBATCH --partition=cuda.q
+
+# no need to claim computer in exclusive mode
+
+echo "GPU info for following computer node"
+hostname
+echo
+
+# install last versions of PGI and CUDA utilities
+module load pgi/18.4
+module load cuda/9.0
+
+# list GPU (accelerator) info (PGI utility)
+pgaccelinfo
+echo
+
+# list GPU device info (CUDA utility)
+nvidia-smi

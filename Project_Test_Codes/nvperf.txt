@@ -1,0 +1,67 @@
+==23252== NVPROF is profiling process 23252, command: ./km1
+==23252== Profiling application: ./km1
+==23252== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.92%  43.1908s       200  215.95ms  208.58ms  1.08887s  PointsToCentroides_118_gpu
+                    0.07%  30.849ms        18  1.7139ms  15.713us  1.9659ms  [CUDA memcpy HtoD]
+                    0.00%  793.70us       200  3.9680us  3.5200us  7.1040us  PointsToCentroides_206_gpu
+                    0.00%  485.88us       203  2.3930us     736ns  315.18us  [CUDA memcpy DtoH]
+                    0.00%  380.91us       200  1.9040us  1.7600us  18.721us  PointsToCentroides_109_gpu
+                    0.00%  114.41us       200     572ns     544ns  1.1200us  [CUDA memset]
+      API calls:   99.15%  43.1933s      1003  43.064ms  1.1650us  1.08887s  cuStreamSynchronize
+                    0.53%  230.28ms         1  230.28ms  230.28ms  230.28ms  cuDevicePrimaryCtxRetain
+                    0.23%  99.394ms         1  99.394ms  99.394ms  99.394ms  cuDevicePrimaryCtxRelease
+                    0.05%  21.151ms         1  21.151ms  21.151ms  21.151ms  cuMemHostAlloc
+                    0.02%  6.7952ms         1  6.7952ms  6.7952ms  6.7952ms  cuMemFreeHost
+                    0.01%  5.2493ms       600  8.7480us  5.9840us  45.522us  cuLaunchKernel
+                    0.01%  3.4088ms         7  486.98us  8.7850us  1.3654ms  cuMemAlloc
+                    0.00%  1.5206ms       203  7.4900us  4.7120us  18.175us  cuMemcpyDtoHAsync
+                    0.00%  1.1189ms         1  1.1189ms  1.1189ms  1.1189ms  cuMemAllocHost
+                    0.00%  745.93us       200  3.7290us  3.3050us  10.248us  cuMemsetD32Async
+                    0.00%  394.61us         1  394.61us  394.61us  394.61us  cuModuleLoadData
+                    0.00%  375.17us       220  1.7050us  1.1550us  4.2130us  cuEventRecord
+                    0.00%  313.19us        18  17.399us  10.743us  38.119us  cuMemcpyHtoDAsync
+                    0.00%  233.63us       219  1.0660us     664ns  7.4730us  cuEventSynchronize
+                    0.00%  164.77us       205     803ns     640ns  3.6740us  cuPointerGetAttributes
+                    0.00%  38.015us         1  38.015us  38.015us  38.015us  cuStreamCreate
+                    0.00%  10.249us         4  2.5620us     315ns  4.6810us  cuEventCreate
+                    0.00%  8.1650us         3  2.7210us     542ns  6.4440us  cuCtxSetCurrent
+                    0.00%  3.1220us         3  1.0400us     196ns  2.0360us  cuDeviceGetCount
+                    0.00%  2.4330us         3     811ns     484ns  1.4390us  cuModuleGetFunction
+                    0.00%  1.5080us         3     502ns     344ns     799ns  cuDeviceGetAttribute
+                    0.00%     932ns         2     466ns     217ns     715ns  cuDeviceGet
+                    0.00%     394ns         1     394ns     394ns     394ns  cuCtxGetCurrent
+                    0.00%     371ns         1     371ns     371ns     371ns  cuDriverGetVersion
+                    0.00%     327ns         1     327ns     327ns     327ns  cuDeviceComputeCapability
+ OpenACC (excl):   99.79%  43.1915s       200  215.96ms  208.58ms  1.08888s  acc_wait@kmeanACC.c:118
+                    0.16%  71.031ms         1  71.031ms  71.031ms  71.031ms  acc_enter_data@kmeanACC.c:278
+                    0.01%  2.6007ms       200  13.003us  11.414us  43.926us  acc_enqueue_launch@kmeanACC.c:206 (PointsToCentroides_206_gpu)
+                    0.00%  2.1234ms       200  10.617us  9.6830us  23.579us  acc_enqueue_download@kmeanACC.c:225
+                    0.00%  2.0293ms       200  10.146us  9.5180us  50.092us  acc_enqueue_launch@kmeanACC.c:109 (PointsToCentroides_109_gpu)
+                    0.00%  1.6483ms       200  8.2410us  6.1910us  314.40us  acc_enter_data@kmeanACC.c:107
+                    0.00%  1.5118ms       200  7.5580us  7.1370us  15.377us  acc_enqueue_launch@kmeanACC.c:118 (PointsToCentroides_118_gpu)
+                    0.00%  1.4016ms         2  700.82us  3.3060us  1.3983ms  acc_wait@kmeanACC.c:287
+                    0.00%  1.1208ms       200  5.6030us  4.9800us  24.136us  acc_exit_data@kmeanACC.c:107
+                    0.00%  983.08us       200  4.9150us  3.0410us  7.9780us  acc_wait@kmeanACC.c:206
+                    0.00%  918.71us       200  4.5930us  4.1240us  15.778us  acc_enqueue_upload@kmeanACC.c:107
+                    0.00%  664.35us       200  3.3210us  3.0480us  5.3140us  acc_wait@kmeanACC.c:225
+                    0.00%  552.51us       200  2.7620us  2.4960us  20.899us  acc_wait@kmeanACC.c:109
+                    0.00%  493.71us       200  2.4680us  2.1820us  7.5570us  acc_compute_construct@kmeanACC.c:206
+                    0.00%  433.75us       200  2.1680us  2.0080us  4.7790us  acc_wait@kmeanACC.c:107
+                    0.00%  422.66us         1  422.66us  422.66us  422.66us  acc_device_init@kmeanACC.c:278
+                    0.00%  414.85us        18  23.046us  12.878us  50.286us  acc_enqueue_upload@kmeanACC.c:278
+                    0.00%  405.98us       200  2.0290us  1.8230us  4.9170us  acc_compute_construct@kmeanACC.c:118
+                    0.00%  351.67us       200  1.7580us  1.5820us  14.473us  acc_compute_construct@kmeanACC.c:109
+                    0.00%  336.35us         1  336.35us  336.35us  336.35us  acc_enter_data@kmeanACC.c:279
+                    0.00%  25.997us         3  8.6650us  7.6280us  10.689us  acc_enqueue_download@kmeanACC.c:287
+                    0.00%  7.5920us         1  7.5920us  7.5920us  7.5920us  acc_wait@kmeanACC.c:278
+                    0.00%  6.6280us         1  6.6280us  6.6280us  6.6280us  acc_exit_data@kmeanACC.c:278
+                    0.00%  4.0880us         1  4.0880us  4.0880us  4.0880us  acc_exit_data@kmeanACC.c:279
+                    0.00%       0ns         3       0ns       0ns       0ns  acc_create@kmeanACC.c:278
+                    0.00%       0ns         2       0ns       0ns       0ns  acc_create@kmeanACC.c:279
+                    0.00%       0ns         1       0ns       0ns       0ns  acc_alloc@kmeanACC.c:107
+                    0.00%       0ns         5       0ns       0ns       0ns  acc_delete@kmeanACC.c:287
+                    0.00%       0ns       200       0ns       0ns       0ns  acc_delete@kmeanACC.c:225
+                    0.00%       0ns         3       0ns       0ns       0ns  acc_alloc@kmeanACC.c:278
+                    0.00%       0ns         2       0ns       0ns       0ns  acc_alloc@kmeanACC.c:279
+                    0.00%       0ns       200       0ns       0ns       0ns  acc_create@kmeanACC.c:107

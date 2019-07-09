@@ -1,0 +1,169 @@
+aolin24.uab.es
+read_CSV_data:
+     36, Loop not vectorized/parallelized: potential early exits
+     86, Memory copy idiom, loop replaced by call to __c_mcopy4
+     94, Loop not vectorized/parallelized: contains call
+PointsToCentroides:
+    109, Generating present(New_Centr[:],Centroides[:],Labels[:],Punts[:])
+         Generating copy(pR[:1])
+         Generating present(Sep[:])
+    111, Accelerator kernel generated
+         Generating Tesla code
+        112, #pragma acc loop gang /* blockIdx.x */
+        117, #pragma acc loop vector(128) /* threadIdx.x */
+    117, Loop is parallelizable
+    121, Accelerator kernel generated
+         Generating Tesla code
+        122, #pragma acc loop gang /* blockIdx.x */
+        136, #pragma acc loop vector(128) /* threadIdx.x */
+        143, Generating implicit reduction(+:dist1)
+        144, Generating implicit reduction(+:dist2)
+        159, #pragma acc loop seq
+        163, #pragma acc loop vector(128) /* threadIdx.x */
+        176, Generating implicit reduction(+:dist1)
+        177, Generating implicit reduction(+:dist2)
+        178, Generating implicit reduction(+:dist3)
+        179, Generating implicit reduction(+:dist4)
+        200, #pragma acc loop vector(128) /* threadIdx.x */
+        209, #pragma acc loop vector(128) /* threadIdx.x */
+    136, Loop is parallelizable
+    159, Loop carried scalar dependence for dist1 at line 182
+         Scalar last value needed after loop for min_arg1 at line 197,196
+         Loop carried scalar dependence for min_arg1 at line 182
+         Loop carried scalar dependence for dist1 at line 183
+         Loop carried scalar dependence for dist3 at line 185
+         Scalar last value needed after loop for min_arg2 at line 211,206
+         Scalar last value needed after loop for min_arg1 at line 202
+         Scalar last value needed after loop for min_arg2 at line 205
+         Loop carried scalar dependence for min_arg2 at line 185
+         Loop carried scalar dependence for dist3 at line 186
+         Loop carried scalar dependence for dist4 at line 179
+         Loop carried scalar dependence for min_dist1 at line 182
+         Loop carried scalar dependence for dist2 at line 188
+         Loop carried scalar dependence for dist1 at line 176
+         Loop carried scalar dependence for min_dist2 at line 186
+         Loop carried scalar dependence for dist1 at line 189
+         Loop carried scalar dependence for dist2 at line 177
+         Loop carried scalar dependence for min_dist1 at line 183
+         Loop carried scalar dependence for min_dist2 at line 185
+         Loop carried scalar dependence for dist3 at line 178
+         Loop carried scalar dependence for dist2 at line 189
+         Loop carried scalar dependence for dist4 at line 192,191
+    163, Loop is parallelizable
+    200, Loop is parallelizable
+    209, Loop is parallelizable
+    215, Accelerator kernel generated
+         Generating Tesla code
+        216, #pragma acc loop gang /* blockIdx.x */
+        220, #pragma acc loop vector(128) /* threadIdx.x */
+    220, Loop is parallelizable
+main:
+    279, Loop not vectorized/parallelized: contains call
+    285, read_CSV_data inlined, size=52 (inline) file kmeanACC.c (10)
+          36, Loop not vectorized/parallelized: potential early exits
+          86, Memory copy idiom, loop replaced by call to __c_mcopy4
+          94, Loop not vectorized/parallelized: contains call
+    288, Generating copyout(Labels[:N])
+         Generating copy(Centroides[:C*D])
+         Generating copyin(Punts[:N*D])
+    289, Generating copyout(Sep[:C])
+         Generating create(New_Centr[:C*D])
+         Loop not vectorized/parallelized: potential early exits
+    307, Loop not vectorized/parallelized: contains call
+    326, Loop not vectorized/parallelized: contains call
+    338, Loop not vectorized/parallelized: contains call
+==22892== NVPROF is profiling process 22892, command: ./km3
+==22892== Profiling application: ./km3
+Usage: ./km3<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=8, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 8
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	6.0	1.0	3.0	0.0	0.0	1.0	3.0	2.0	2.0	0.0	1.0	0.0	0.0	3.0	3.0	0.0	3.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	7.0	0.0	2.0	0.0	0.0	0.0	1.0	2.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	1.0	0.0	4.0	0.0	0.0	0.0	1.0	1.0	0.0	4.0	10.0	0.0	1.0	7.0	1.0	0.0	0.0	0.0	0.0	0.0	3.0	0.0	1.0	1.0	1.0	0.0	10.0	1.0	2.0	
+	6.0	1.0	1.0	0.0	0.0	1.0	4.0	2.0	2.0	0.0	0.0	0.0	0.0	3.0	5.0	0.0	4.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	9.0	0.0	2.0	0.0	0.0	0.0	1.0	2.0	1.0	2.0	1.0	0.0	2.0	0.0	2.0	1.0	0.0	5.0	0.0	0.0	0.0	1.0	1.0	0.0	5.0	21.0	0.0	1.0	10.0	1.0	0.0	0.0	0.0	0.0	0.0	4.0	0.0	2.0	1.0	1.0	1.0	14.0	1.0	1.0	
+	1.0	2.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	4.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	4.0	0.0	2.0	0.0	223.0	0.0	0.0	1.0	0.0	10.0	1.0	0.0	0.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	
+	7.0	11.0	1.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	2.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	2.0	2.0	1.0	0.0	0.0	4.0	1.0	1.0	0.0	0.0	1.0	0.0	2.0	1.0	4.0	0.0	5.0	0.0	0.0	0.0	6.0	0.0	2.0	23.0	0.0	3.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	5.0	7.0	0.0	
+	7.0	2.0	12.0	0.0	3.0	4.0	0.0	2.0	2.0	0.0	0.0	0.0	0.0	0.0	0.0	10.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	9.0	0.0	2.0	2.0	0.0	0.0	0.0	2.0	1.0	2.0	1.0	0.0	2.0	2.0	2.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	6.0	0.0	3.0	51.0	0.0	1.0	10.0	1.0	0.0	0.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	1.0	11.0	4.0	1.0	
+	7.0	0.0	1.0	0.0	0.0	1.0	0.0	2.0	2.0	0.0	0.0	6.0	0.0	1.0	0.0	0.0	1.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	7.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	6.0	0.0	2.0	22.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	2.0	1.0	2.0	0.0	8.0	2.0	0.0	
+	
+Number of iterations needed (T): 1
+
+Number of changes (F): 1
+==22892== Profiling result:
+   Start  Duration            Grid Size      Block Size     Regs*    SSMem*    DSMem*      Size  Throughput  SrcMemType  DstMemType           Device   Context    Stream  Name
+6.08566s  429.68us                    -               -         -         -         -  3.3994MB  7.7261GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.08867s  1.8536ms                    -               -         -         -         -  16.000MB  8.4297GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.09196s  1.8244ms                    -               -         -         -         -  16.000MB  8.5645GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.09519s  1.8179ms                    -               -         -         -         -  16.000MB  8.5951GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.09836s  1.8199ms                    -               -         -         -         -  16.000MB  8.5854GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.10155s  1.8354ms                    -               -         -         -         -  16.000MB  8.5131GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.10467s  1.8478ms                    -               -         -         -         -  16.000MB  8.4559GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.10782s  1.8460ms                    -               -         -         -         -  16.000MB  8.4641GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.11092s  1.8539ms                    -               -         -         -         -  16.000MB  8.4281GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.11403s  1.8737ms                    -               -         -         -         -  16.000MB  8.3391GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.11708s  1.8696ms                    -               -         -         -         -  16.000MB  8.3574GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.12016s  1.8709ms                    -               -         -         -         -  16.000MB  8.3518GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.12321s  1.8872ms                    -               -         -         -         -  16.000MB  8.2796GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.12625s  1.8906ms                    -               -         -         -         -  16.000MB  8.2647GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.12926s  1.8880ms                    -               -         -         -         -  16.000MB  8.2761GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.13230s  1.9070ms                    -               -         -         -         -  16.000MB  8.1933GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.13529s  1.3511ms                    -               -         -         -         -  16.000MB  11.564GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.13670s     928ns                    -               -         -         -         -  2.1250KB  2.1838GB/s      Pinned      Device  GeForce GTX 108         1        14  [CUDA memcpy HtoD]
+6.13751s     768ns                    -               -         -         -         -        4B  4.9671MB/s      Device           -  GeForce GTX 108         1        14  [CUDA memset]
+6.13760s  2.1120us              (8 1 1)       (128 1 1)        10        0B        0B         -           -           -           -  GeForce GTX 108         1        14  PointsToCentroides_111_gpu [91]
+6.13763s  27.625ms          (65535 1 1)       (128 1 1)        31      112B      512B         -           -           -           -  GeForce GTX 108         1        14  PointsToCentroides_121_gpu [93]
+6.16528s  3.2640us              (8 1 1)       (128 1 1)        23        0B        0B         -           -           -           -  GeForce GTX 108         1        14  PointsToCentroides_215_gpu [95]
+6.16532s  1.2800us                    -               -         -         -         -        4B  2.9802MB/s      Device      Pinned  GeForce GTX 108         1        14  [CUDA memcpy DtoH]
+6.16536s     736ns                    -               -         -         -         -       32B  41.464MB/s      Device      Pinned  GeForce GTX 108         1        14  [CUDA memcpy DtoH]
+6.16538s  315.28us                    -               -         -         -         -  3.8147MB  11.816GB/s      Device      Pinned  GeForce GTX 108         1        14  [CUDA memcpy DtoH]
+6.16570s  1.0560us                    -               -         -         -         -  2.1250KB  1.9191GB/s      Device      Pinned  GeForce GTX 108         1        14  [CUDA memcpy DtoH]
+
+Regs: Number of registers used per CUDA thread. This number includes registers used internally by the CUDA driver and/or tools and can be more than what the compiler shows.
+SSMem: Static shared memory allocated per CUDA block.
+DSMem: Dynamic shared memory allocated per CUDA block.
+SrcMemType: The type of source memory accessed by memory operation/copy
+DstMemType: The type of destination memory accessed by memory operation/copy
+==22892== Generated result file: /home/pfc/jwilliams/kms/GPU/PerformanceDataTest/traceA3.txt
+======== Warning: Metric "l1_shared_utilization" cannot be found on device 0.
+======== Warning: Metric "alu_fu_utilization" cannot be found on device 0.
+======== Warning: Metric "l2_l1_read_transactions" cannot be found on device 0.
+======== Warning: Metric "l2_l1_write_transactions" cannot be found on device 0.
+======== Warning: Metric "nc_l2_read_transactions" cannot be found on device 0.
+======== Warning: Metric "l2_l1_read_throughput" cannot be found on device 0.
+======== Warning: Metric "l2_l1_write_throughput" cannot be found on device 0.
+======== Warning: Metric "nc_l2_read_throughput" cannot be found on device 0.
+======== Warning: Metric "atomic_throughput" cannot be found on device 0.
+==22909== NVPROF is profiling process 22909, command: ./km3
+==22909== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==22909== Generated result file: /home/pfc/jwilliams/kms/GPU/PerformanceDataTest/metricsA3.out
+Usage: ./km3<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=8, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 8
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	6.0	1.0	3.0	0.0	0.0	1.0	3.0	2.0	2.0	0.0	1.0	0.0	0.0	3.0	3.0	0.0	3.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	7.0	0.0	2.0	0.0	0.0	0.0	1.0	2.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	1.0	0.0	4.0	0.0	0.0	0.0	1.0	1.0	0.0	4.0	10.0	0.0	1.0	7.0	1.0	0.0	0.0	0.0	0.0	0.0	3.0	0.0	1.0	1.0	1.0	0.0	10.0	1.0	2.0	
+	6.0	1.0	1.0	0.0	0.0	1.0	4.0	2.0	2.0	0.0	0.0	0.0	0.0	3.0	5.0	0.0	4.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	9.0	0.0	2.0	0.0	0.0	0.0	1.0	2.0	1.0	2.0	1.0	0.0	2.0	0.0	2.0	1.0	0.0	5.0	0.0	0.0	0.0	1.0	1.0	0.0	5.0	21.0	0.0	1.0	10.0	1.0	0.0	0.0	0.0	0.0	0.0	4.0	0.0	2.0	1.0	1.0	1.0	14.0	1.0	1.0	
+	1.0	2.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	4.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	4.0	0.0	2.0	0.0	223.0	0.0	0.0	1.0	0.0	10.0	1.0	0.0	0.0	0.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	
+	7.0	11.0	1.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	2.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	2.0	2.0	1.0	0.0	0.0	4.0	1.0	1.0	0.0	0.0	1.0	0.0	2.0	1.0	4.0	0.0	5.0	0.0	0.0	0.0	6.0	0.0	2.0	23.0	0.0	3.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	5.0	7.0	0.0	
+	7.0	2.0	12.0	0.0	3.0	4.0	0.0	2.0	2.0	0.0	0.0	0.0	0.0	0.0	0.0	10.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	9.0	0.0	2.0	2.0	0.0	0.0	0.0	2.0	1.0	2.0	1.0	0.0	2.0	2.0	2.0	1.0	0.0	0.0	0.0	0.0	0.0	0.0	6.0	0.0	3.0	51.0	0.0	1.0	10.0	1.0	0.0	0.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	1.0	11.0	4.0	1.0	
+	7.0	0.0	1.0	0.0	0.0	1.0	0.0	2.0	2.0	0.0	0.0	6.0	0.0	1.0	0.0	0.0	1.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	7.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	6.0	0.0	2.0	22.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	2.0	1.0	2.0	0.0	8.0	2.0	0.0	
+	
+Number of iterations needed (T): 1
+
+Number of changes (F): 1

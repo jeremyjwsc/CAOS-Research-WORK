@@ -1,0 +1,100 @@
+==6340== PGPROF is profiling process 6340, command: ./km1
+==6340== Profiling application: ./km1
+==6340== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ OpenACC (excl):   99.82%  14.1499s       200  70.750ms  70.365ms  110.31ms  acc_compute_construct@kmeanACC.c:121
+                    0.17%  24.727ms       200  123.64us  1.6830us  24.353ms  acc_compute_construct@kmeanACC.c:111
+                    0.01%  1.0733ms       200  5.3660us  4.1070us  109.32us  acc_compute_construct@kmeanACC.c:215
+==6340== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+
+======== CPU profiling result (bottom up):
+Time(%)      Time  Name
+ 91.77%  56.0099s  PointsToCentroides
+ 91.77%  56.0099s  | main
+ 91.77%  56.0099s  |   ???
+  2.38%     1.45s  strtok
+  2.38%     1.45s  | main
+  2.38%     1.45s  |   ???
+  1.97%      1.2s  _mp_barrier_tw
+  1.07%     650ms  | _mp_cslave
+  1.07%     650ms  | | _mp_slave
+  0.03%      20ms  | |   _mp_pcpu_wait
+  0.03%      20ms  | |     start_thread
+  0.03%      20ms  | |       clone
+  0.90%     550ms  | __pgi_acc_barrier
+  0.90%     550ms  |   PointsToCentroides
+  0.90%     550ms  |     main
+  0.90%     550ms  |       ???
+  1.33%     810ms  __GI_____strtod_l_internal
+  1.33%     810ms  | main
+  1.33%     810ms  |   ???
+  0.95%     580ms  __strcmp_sse42
+  0.95%     580ms  | main
+  0.95%     580ms  |   ???
+  0.51%     310ms  main
+  0.51%     310ms  | ???
+  0.16%     100ms  round_and_return
+  0.16%     100ms  | __GI_____strtod_l_internal
+  0.16%     100ms  |   main
+  0.16%     100ms  |     ???
+  0.15%      90ms  str_to_mpn.isra.0
+  0.15%      90ms  | __GI_____strtod_l_internal
+  0.15%      90ms  |   main
+  0.15%      90ms  |     ???
+  0.11%      70ms  __strlen_sse2
+  0.11%      70ms  | __GI_____strtod_l_internal
+  0.11%      70ms  |   main
+  0.11%      70ms  |     ???
+  0.10%      60ms  ???
+  0.10%      60ms  | main
+  0.10%      60ms  |   ???
+  0.10%      60ms  __mpn_construct_double
+  0.10%      60ms  | round_and_return
+  0.10%      60ms  |   __GI_____strtod_l_internal
+  0.10%      60ms  |     main
+  0.10%      60ms  |       ???
+  0.08%      50ms  atof
+  0.08%      50ms  | main
+  0.08%      50ms  |   ???
+  0.08%      50ms  _int_malloc
+  0.08%      50ms  | __libc_malloc
+  0.08%      50ms  |   main
+  0.08%      50ms  |     ???
+  0.07%      40ms  __correctly_grouped_prefixmb
+  0.07%      40ms  | __GI_____strtod_l_internal
+  0.07%      40ms  |   main
+  0.07%      40ms  |     ???
+  0.07%      40ms  __mpn_lshift
+  0.07%      40ms  | __GI_____strtod_l_internal
+  0.07%      40ms  |   main
+  0.07%      40ms  |     ???
+  0.05%      30ms  _mp_barrierw
+  0.05%      30ms  | _mp_create_team
+  0.05%      30ms  |   __pgi_acc_cpenter
+  0.05%      30ms  |     __pgi_acc_penter_set
+  0.05%      30ms  |       PointsToCentroides
+  0.05%      30ms  |         main
+  0.05%      30ms  |           ???
+  0.05%      30ms  read
+  0.05%      30ms  | _IO_file_underflow@@GLIBC_2.2.5
+  0.05%      30ms  |   _IO_default_uflow
+  0.05%      30ms  |     _IO_getline_info
+  0.05%      30ms  |       _IO_fgets
+  0.05%      30ms  |         main
+  0.05%      30ms  |           ???
+  0.03%      20ms  _IO_fgets
+  0.03%      20ms  | main
+  0.03%      20ms  |   ???
+  0.02%      10ms  strtod
+  0.02%      10ms  | main
+  0.02%      10ms  |   ???
+  0.02%      10ms  pthread_cond_signal@@GLIBC_2.3.2
+  0.02%      10ms  __GI_memcpy
+  0.02%      10ms    _IO_getline_info
+  0.02%      10ms      _IO_fgets
+  0.02%      10ms        main
+  0.02%      10ms          ???
+
+======== Data collected at 100Hz frequency

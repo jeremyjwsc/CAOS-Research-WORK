@@ -1,0 +1,109 @@
+==5264== PGPROF is profiling process 5264, command: ./km1
+==5264== Profiling application: ./km1
+==5264== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ OpenACC (excl):   99.84%  19.6585s       200  98.293ms  97.449ms  146.75ms  acc_compute_construct@kmeanACC.c:121
+                    0.15%  28.801ms       200  144.00us  1.9100us  28.386ms  acc_compute_construct@kmeanACC.c:111
+                    0.01%  1.9954ms       200  9.9770us  9.3980us  11.165us  acc_compute_construct@kmeanACC.c:215
+==5264== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+
+======== CPU profiling result (bottom up):
+Time(%)      Time  Name
+ 94.31%   78.223s  PointsToCentroides
+ 94.31%   78.223s  | main
+ 94.31%   78.223s  |   ???
+  1.76%  1.46006s  strtok
+  1.76%  1.46006s  | main
+  1.76%  1.46006s  |   ???
+  1.23%  1.02004s  _mp_barrier_tw
+  0.76%  630.02ms  | _mp_cslave
+  0.76%  630.02ms  | | _mp_slave
+  0.47%  390.01ms  | __pgi_acc_barrier
+  0.47%  390.01ms  |   PointsToCentroides
+  0.47%  390.01ms  |     main
+  0.47%  390.01ms  |       ???
+  0.89%  740.03ms  __GI_____strtod_l_internal
+  0.89%  740.03ms  | main
+  0.89%  740.03ms  |   ???
+  0.63%  520.02ms  __strcmp_sse42
+  0.63%  520.02ms  | main
+  0.63%  520.02ms  |   ???
+  0.23%  190.01ms  str_to_mpn.isra.0
+  0.23%  190.01ms  | __GI_____strtod_l_internal
+  0.23%  190.01ms  |   main
+  0.23%  190.01ms  |     ???
+  0.22%  180.01ms  main
+  0.22%  180.01ms  | ???
+  0.16%     130ms  round_and_return
+  0.16%     130ms  | __GI_____strtod_l_internal
+  0.16%     130ms  |   main
+  0.16%     130ms  |     ???
+  0.12%     100ms  __strlen_sse2
+  0.12%     100ms  | __GI_____strtod_l_internal
+  0.12%     100ms  |   main
+  0.12%     100ms  |     ???
+  0.10%  80.003ms  __correctly_grouped_prefixmb
+  0.10%  80.003ms  | __GI_____strtod_l_internal
+  0.10%  80.003ms  |   main
+  0.10%  80.003ms  |     ???
+  0.05%  40.002ms  __mpn_lshift
+  0.05%  40.002ms  | __GI_____strtod_l_internal
+  0.05%  40.002ms  |   main
+  0.05%  40.002ms  |     ???
+  0.05%  40.002ms  strtod
+  0.05%  40.002ms  | main
+  0.05%  40.002ms  |   ???
+  0.05%  40.002ms  ???
+  0.05%  40.002ms  | main
+  0.05%  40.002ms  |   ???
+  0.05%  40.002ms  _int_malloc
+  0.05%  40.002ms  | __libc_malloc
+  0.05%  40.002ms  |   main
+  0.05%  40.002ms  |     ???
+  0.02%  20.001ms  _mp_barrierw
+  0.02%  20.001ms  | _mp_create_team
+  0.02%  20.001ms  |   __pgi_acc_cpenter
+  0.02%  20.001ms  |     __pgi_acc_penter_set
+  0.02%  20.001ms  |       PointsToCentroides
+  0.02%  20.001ms  |         main
+  0.02%  20.001ms  |           ???
+  0.02%  20.001ms  read
+  0.02%  20.001ms  | _IO_file_underflow@@GLIBC_2.2.5
+  0.02%  20.001ms  |   _IO_default_uflow
+  0.02%  20.001ms  |     _IO_getline_info
+  0.02%  20.001ms  |       _IO_fgets
+  0.02%  20.001ms  |         main
+  0.02%  20.001ms  |           ???
+  0.02%  20.001ms  __mpn_construct_double
+  0.02%  20.001ms  | round_and_return
+  0.02%  20.001ms  |   __GI_____strtod_l_internal
+  0.02%  20.001ms  |     main
+  0.02%  20.001ms  |       ???
+  0.02%  20.001ms  atof
+  0.02%  20.001ms  | main
+  0.02%  20.001ms  |   ???
+  0.01%      10ms  memchr
+  0.01%      10ms  | _IO_getline_info
+  0.01%      10ms  |   _IO_fgets
+  0.01%      10ms  |     main
+  0.01%      10ms  |       ???
+  0.01%      10ms  pthread_cond_signal@@GLIBC_2.3.2
+  0.01%      10ms  __strcpy_sse2_unaligned
+  0.01%      10ms  | main
+  0.01%      10ms  |   ???
+  0.01%      10ms  _IO_getline_info
+  0.01%      10ms  | _IO_fgets
+  0.01%      10ms  |   main
+  0.01%      10ms  |     ???
+  0.01%      10ms  __GI_memcpy
+  0.01%      10ms  | _IO_getline_info
+  0.01%      10ms  |   _IO_fgets
+  0.01%      10ms  |     main
+  0.01%      10ms  |       ???
+  0.01%      10ms  _IO_fgets
+  0.01%      10ms    main
+  0.01%      10ms      ???
+
+======== Data collected at 100Hz frequency

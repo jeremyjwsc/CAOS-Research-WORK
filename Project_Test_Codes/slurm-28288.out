@@ -1,0 +1,271 @@
+aolin24.uab.es
+
+CUDA Driver Version:           9000
+NVRM version:                  NVIDIA UNIX x86_64 Kernel Module  384.81  Sat Sep  2 02:43:11 PDT 2017
+
+Device Number:                 0
+Device Name:                   GeForce GTX 1080 Ti
+Device Revision Number:        6.1
+Global Memory Size:            11711807488
+Number of Multiprocessors:     28
+Concurrent Copy and Execution: Yes
+Total Constant Memory:         65536
+Total Shared Memory per Block: 49152
+Registers per Block:           65536
+Warp Size:                     32
+Maximum Threads per Block:     1024
+Maximum Block Dimensions:      1024, 1024, 64
+Maximum Grid Dimensions:       2147483647 x 65535 x 65535
+Maximum Memory Pitch:          2147483647B
+Texture Alignment:             512B
+Clock Rate:                    1620 MHz
+Execution Timeout:             No
+Integrated Device:             No
+Can Map Host Memory:           Yes
+Compute Mode:                  default
+Concurrent Kernels:            Yes
+ECC Enabled:                   No
+Memory Clock Rate:             5505 MHz
+Memory Bus Width:              352 bits
+L2 Cache Size:                 2883584 bytes
+Max Threads Per SMP:           2048
+Async Engines:                 2
+Unified Addressing:            Yes
+Managed Memory:                Yes
+Concurrent Managed Memory:     Yes
+Preemption Supported:          Yes
+Cooperative Launch:            Yes
+  Multi-Device:                Yes
+PGI Compiler Option:           -ta=tesla:cc60
+
+CUDA Driver Version:           9000
+NVRM version:                  NVIDIA UNIX x86_64 Kernel Module  384.81  Sat Sep  2 02:43:11 PDT 2017
+
+Device Number:                 0
+Device Name:                   GeForce GTX 1080 Ti
+Device Revision Number:        6.1
+Global Memory Size:            11711807488
+Number of Multiprocessors:     28
+Concurrent Copy and Execution: Yes
+Total Constant Memory:         65536
+Total Shared Memory per Block: 49152
+Registers per Block:           65536
+Warp Size:                     32
+Maximum Threads per Block:     1024
+Maximum Block Dimensions:      1024, 1024, 64
+Maximum Grid Dimensions:       2147483647 x 65535 x 65535
+Maximum Memory Pitch:          2147483647B
+Texture Alignment:             512B
+Clock Rate:                    1620 MHz
+Execution Timeout:             No
+Integrated Device:             No
+Can Map Host Memory:           Yes
+Compute Mode:                  default
+Concurrent Kernels:            Yes
+ECC Enabled:                   No
+Memory Clock Rate:             5505 MHz
+Memory Bus Width:              352 bits
+L2 Cache Size:                 2883584 bytes
+Max Threads Per SMP:           2048
+Async Engines:                 2
+Unified Addressing:            Yes
+Managed Memory:                Yes
+Concurrent Managed Memory:     Yes
+Preemption Supported:          Yes
+Cooperative Launch:            Yes
+  Multi-Device:                Yes
+PGI Compiler Option:           -ta=tesla:cc60
+Sat Feb 23 06:55:36 2019       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 384.81                 Driver Version: 384.81                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:01:00.0 Off |                  N/A |
+|  0%   38C    P5    47W / 250W |      0MiB / 11169MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+read_CSV_data:
+     36, Loop not vectorized/parallelized: potential early exits
+     85, Memory copy idiom, loop replaced by call to __c_mcopy4
+     92, Loop not vectorized/parallelized: contains call
+PointsToCentroides:
+    107, Generating present(New_Centr[:],Centroides[:],Labels[:],Punts[:])
+         Generating copy(pR[:1])
+         Generating present(Sep[:])
+    109, Accelerator kernel generated
+         Generating Tesla code
+        110, #pragma acc loop gang /* blockIdx.x */
+        114, #pragma acc loop vector(128) /* threadIdx.x */
+    114, Loop is parallelizable
+    118, Accelerator kernel generated
+         Generating Tesla code
+        119, #pragma acc loop gang /* blockIdx.x */
+        130, #pragma acc loop vector(128) /* threadIdx.x */
+        137, Generating implicit reduction(+:dist1)
+        138, Generating implicit reduction(+:dist2)
+        152, #pragma acc loop seq
+        154, #pragma acc loop vector(128) /* threadIdx.x */
+        167, Generating implicit reduction(+:dist1)
+        168, Generating implicit reduction(+:dist2)
+        169, Generating implicit reduction(+:dist3)
+        170, Generating implicit reduction(+:dist4)
+        191, #pragma acc loop seq
+        200, #pragma acc loop seq
+    130, Loop is parallelizable
+    152, Loop carried scalar dependence for dist1 at line 173
+         Scalar last value needed after loop for min_arg1 at line 189,187
+         Loop carried scalar dependence for min_arg1 at line 173
+         Loop carried scalar dependence for dist1 at line 174
+         Loop carried scalar dependence for dist3 at line 176
+         Scalar last value needed after loop for min_arg2 at line 202,198
+         Scalar last value needed after loop for min_arg1 at line 193
+         Scalar last value needed after loop for min_arg2 at line 196
+         Loop carried scalar dependence for min_arg2 at line 176
+         Loop carried scalar dependence for dist3 at line 177
+         Loop carried scalar dependence for dist4 at line 170
+         Loop carried scalar dependence for min_dist1 at line 173
+         Loop carried scalar dependence for dist2 at line 179
+         Loop carried scalar dependence for dist1 at line 167
+         Loop carried scalar dependence for min_dist2 at line 177
+         Loop carried scalar dependence for dist1 at line 180
+         Loop carried scalar dependence for dist2 at line 168
+         Loop carried scalar dependence for min_dist1 at line 174
+         Loop carried scalar dependence for min_dist2 at line 176
+         Loop carried scalar dependence for dist3 at line 169
+         Loop carried scalar dependence for dist2 at line 180
+         Loop carried scalar dependence for dist4 at line 183,182
+    154, Loop is parallelizable
+    191, Complex loop carried dependence of Punts->,New_Centr-> prevents parallelization
+         Loop carried reuse of New_Centr-> prevents parallelization
+    200, Complex loop carried dependence of Punts->,New_Centr-> prevents parallelization
+         Loop carried reuse of New_Centr-> prevents parallelization
+    206, Accelerator kernel generated
+         Generating Tesla code
+        207, #pragma acc loop gang /* blockIdx.x */
+        211, #pragma acc loop vector(128) /* threadIdx.x */
+    211, Loop is parallelizable
+main:
+    269, Loop not vectorized/parallelized: contains call
+    275, read_CSV_data inlined, size=52 (inline) file kmeanACC.c (10)
+          36, Loop not vectorized/parallelized: potential early exits
+          85, Memory copy idiom, loop replaced by call to __c_mcopy4
+          92, Loop not vectorized/parallelized: contains call
+    278, Generating copyout(Labels[:N])
+         Generating copy(Centroides[:C*D])
+         Generating copyin(Punts[:N*D])
+    279, Generating copyout(Sep[:C])
+         Generating create(New_Centr[:C*D])
+         Loop not vectorized/parallelized: potential early exits
+    295, Loop not vectorized/parallelized: contains call
+    314, Loop not vectorized/parallelized: contains call
+    326, Loop not vectorized/parallelized: contains call
+Usage: ./km1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=2, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 2
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	
+Number of iterations needed (T): 130
+
+Number of changes (F): 0
+
+ Performance counter stats for './km1':
+
+       9867,618837      task-clock (msec)         #    0,928 CPUs utilized          
+               200      context-switches          #    0,020 K/sec                  
+                 8      cpu-migrations            #    0,001 K/sec                  
+            13.594      page-faults               #    0,001 M/sec                  
+    37.317.822.468      cycles                    #    3,782 GHz                    
+    13.996.556.835      stalled-cycles-frontend   #   37,51% frontend cycles idle   
+   <not supported>      stalled-cycles-backend   
+    58.332.871.186      instructions              #    1,56  insns per cycle        
+                                                  #    0,24  stalled cycles per insn
+    12.395.530.057      branches                  # 1256,182 M/sec                  
+        90.230.570      branch-misses             #    0,73% of all branches        
+
+      10,633052381 seconds time elapsed
+
+Usage: ./km1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=2, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 2
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	
+Number of iterations needed (T): 26
+
+Number of changes (F): 0
+Usage: ./km1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=2, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 2
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	
+Number of iterations needed (T): 56
+
+Number of changes (F): 0
+Usage: ./km1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=2, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 2
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	
+Number of iterations needed (T): 48
+
+Number of changes (F): 0
+Usage: ./km1<InputData_Large.csv>, <K=Number of Clusters>, <N=Number of Rows>, <D=Number of Columns>
+We now use default parameters with InputData_Large.csv, K=2, N=1000000, D=68
+K-means:
+	 Points: 1000000
+	 Dimension: 68
+	 Centroides: 2
+reading input data from InputData_Large.csv
+
+Read 1000000 x 68 points data from InputData_Large.csv.
+
+Centroides:
+	6.0	11.0	1.0	0.0	0.0	6.0	0.0	2.0	2.0	0.0	0.0	7.0	0.0	2.0	1.0	0.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	8.0	0.0	2.0	0.0	0.0	0.0	11.0	4.0	1.0	2.0	2.0	0.0	2.0	0.0	2.0	2.0	4.0	2.0	1.0	0.0	0.0	0.0	1.0	0.0	2.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	1.0	1.0	0.0	13.0	1.0	0.0	
+	7.0	1.0	1.0	0.0	0.0	0.0	0.0	1.0	2.0	0.0	0.0	7.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	1.0	1.0	0.0	0.0	0.0	0.0	0.0	2.0	2.0	0.0	0.0	0.0	4.0	2.0	2.0	0.0	0.0	2.0	0.0	2.0	1.0	4.0	0.0	1.0	0.0	0.0	0.0	6.0	0.0	3.0	10.0	0.0	1.0	0.0	1.0	0.0	1.0	0.0	0.0	3.0	0.0	0.0	0.0	2.0	2.0	0.0	11.0	6.0	0.0	
+	
+Number of iterations needed (T): 59
+
+Number of changes (F): 0

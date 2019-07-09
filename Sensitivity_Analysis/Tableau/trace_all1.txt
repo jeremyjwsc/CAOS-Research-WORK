@@ -1,0 +1,5 @@
+==32040== NVPROF is profiling process 32040, command: ./km1
+==32040== Profiling application: ./km1
+==32040== Profiling result:
+No kernels were profiled.
+==32040== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.

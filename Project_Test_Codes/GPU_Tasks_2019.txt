@@ -1,0 +1,24 @@
+
+
+The initial test will be Clusters(K)=4, D(Dimensions)=68 and N = 1,000,000 rows (1 million).  
+
+
+Test #1
+Columns (where K=4)
+
+D = 68, 34, 17, 8, 4, 2 
+
+
+Test #2
+Classes K (where D=68)
+
+K = 12, 10, 8, 6, 4, 2
+
+Use:
+cut -d, -f36-69 --complement InputData_Large.csv > output34.csv
+cut -d, -f19-69 --complement InputData_Large.csv > output17.csv
+cut -d, -f10-69 --complement InputData_Large.csv > output8.csv
+cut -d, -f6-69 --complement InputData_Large.csv > output4.csv
+cut -d, -f4-69 --complement InputData_Large.csv > output2.csv
+
+

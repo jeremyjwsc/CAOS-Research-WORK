@@ -1,0 +1,39 @@
+#!/bin/bash -l
+#
+#SBATCH --job-name=ML_KMs
+#SBATCH -N 1 # number of nodes
+#SBATCH -n 2 # number of cores TOTALES
+#SBATCH --partition=cuda.q 
+#SBATCH --nodelist=aolin24
+#SBATCH --gres=gpu:2
+
+hostname
+
+module add gcc/8.2.0
+module load pgi/18.4 
+module add cuda/9.0
+
+# list GPU (accelerator) info (PGI utility)
+pgaccelinfo # For 0
+export CUDA_VISIBLE_DEVICES=0,1
+pgaccelinfo # For 0,1
+
+# list GPU device info (CUDA utility)
+nvidia-smi
+
+pgcc -fast -acc -ta=tesla -Minfo=all kmeans-openacc.c -o km1
+
+perf stat ./km1
+
+pgprof ./km1 2>pgperf.txt
+
+nvprof ./km1 2>nvperf.txt
+
+nvprof --print-gpu-trace ./km1 2>trace_gpu.txt
+
+nvprof --print-gpu-trace --print-api-trace ./km1 2>trace_all.txt
+
+# nvvp ./km1
+
+exit 0
+ 
